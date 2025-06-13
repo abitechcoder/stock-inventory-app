@@ -24,3 +24,27 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@container(max-width:120px) {
+  .table-d5e33407-730e-4d4b-9125-c8300679d0f9-column-120 {
+    display: none;
+  }
+}
+
+@container(max-width:240px) {
+  .table-d5e33407-730e-4d4b-9125-c8300679d0f9-column-240 {
+    display: none;
+  }
+}
+
+@container(max-width:360px) {
+  .table-d5e33407-730e-4d4b-9125-c8300679d0f9-column-360 {
+    display: none;
+  }
+}
+
+@container(max-width:480px) {
+  .table-d5e33407-730e-4d4b-9125-c8300679d0f9-column-480 {
+    display: none;
+  }
+}
