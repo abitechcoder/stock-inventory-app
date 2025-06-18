@@ -29,7 +29,7 @@ export default async function Home() {
 
       <div>
         {deliveries.length > 0 && (
-          <RecentDeliveryTable deliveries={deliveries.slice(0, 10)} />
+          <RecentDeliveryTable deliveries={deliveries} />
         )}
       </div>
     </div>

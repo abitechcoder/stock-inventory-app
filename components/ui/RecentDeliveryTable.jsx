@@ -52,7 +52,7 @@ const RecentDeliveryTable = ({ deliveries }) => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {deliveries.map((delivery) => (
+          {deliveries.slice(0, 10).map((delivery) => (
             <TableRow key={delivery.id}>
               <TableCell className="font-medium text-center">
                 {delivery.id}
