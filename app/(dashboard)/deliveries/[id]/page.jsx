@@ -10,7 +10,7 @@ const Delivery = () => {
 
   const { deliveryInfo } = useDeliveryContext();
   return (
-    <div>
+    <div className="h-full">
       <Link href="/deliveries" className="flex items-center gap-2 mb-8">
         <div className="h-[30px] w-[30px] rounded-full bg-primary flex justify-center items-center">
           <ArrowLeft className="text-primary-foreground h-[20px] w-[20px]" />

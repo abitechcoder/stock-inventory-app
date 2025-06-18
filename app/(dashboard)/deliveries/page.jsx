@@ -2,7 +2,7 @@ import { DeliveriesTable } from "@/components/ui/deliveries-table";
 
 const Deliveries = async () => {
   return (
-    <div>
+    <div className="h-full">
       <div className="flex min-w-72 flex-col gap-2">
         <p className="text-foreground tracking-light text-3xl font-bold leading-tight">
           Deliveries
