@@ -1,29 +1,29 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import { ThemeProvider } from "@/components/theme-provider";
+import { DeliveryContextProvider } from "@/contexts/DeliveryContext";
 
 export const metadata = {
   title: "M.Saleh Stock Inventory",
-  description: "This is a web app that monitors deliveries posted by all branches.",
+  description:
+    "This is a web app that monitors deliveries posted by all branches.",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+    <>
+      <html lang="en" suppressHydrationWarning>
+        <head />
+        <body>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <DeliveryContextProvider>{children}</DeliveryContextProvider>
+          </ThemeProvider>
+        </body>
+      </html>
+    </>
   );
 }
