@@ -11,9 +11,11 @@ import {
 } from "./table";
 import { DeliveryStatusBadge } from "./StatusBadge";
 import { useDeliveryContext } from "@/contexts/DeliveryContext";
+import { Input } from "@/components/ui/input";
 
 export const DeliveriesTable = () => {
   const router = useRouter();
+  // const [searchTerm, setSearchTerm] = React.useState<string>("");
   const { setDeliveryInfo, deliveries } = useDeliveryContext();
 
   const handleRowClick = (delivery) => {

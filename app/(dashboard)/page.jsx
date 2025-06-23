@@ -1,5 +1,6 @@
 import { getDeliveries } from "@/lib/data";
 import RecentDeliveryTable from "@/components/ui/RecentDeliveryTable";
+import { AlertTriangle } from "lucide-react";
 
 export default async function Home() {
   const deliveries = await getDeliveries();
