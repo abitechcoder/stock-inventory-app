@@ -1,5 +1,6 @@
 "use client";
 import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 import {
   Table,
@@ -15,12 +16,18 @@ import Link from "next/link";
 import { useDeliveryContext } from "@/contexts/DeliveryContext";
 
 const RecentDeliveryTable = ({ deliveries }) => {
-  const { setDeliveries } = useDeliveryContext();
+  const router = useRouter();
+  const { setDeliveries, setDeliveryInfo } = useDeliveryContext();
 
   useEffect(() => {
     setDeliveries(deliveries);
   }, [deliveries]);
-  
+
+  const handleRowClick = (delivery) => {
+    setDeliveryInfo(delivery);
+    router.push(`/deliveries/${delivery.delivery_id}`);
+  };
+
   return (
     <div className="mt-2">
       <div className="flex items-center justify-between">
@@ -52,8 +59,12 @@ const RecentDeliveryTable = ({ deliveries }) => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {deliveries.slice(0, 10).map((delivery) => (
-            <TableRow key={delivery.id}>
+          {deliveries.slice(0, 8).map((delivery) => (
+            <TableRow
+              key={delivery.id}
+              className={"hover:cursor-pointer"}
+              onClick={() => handleRowClick(delivery)}
+            >
               <TableCell className="font-medium text-center">
                 {delivery.id}
               </TableCell>

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useDeliveryContext } from "@/contexts/DeliveryContext";
 import { useParams } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
@@ -7,8 +7,20 @@ import Link from "next/link";
 
 const Delivery = () => {
   const { id } = useParams();
-
   const { deliveryInfo } = useDeliveryContext();
+  const [imgSrc, setImgSrc] = useState(
+    `https://msalehgroup.co.in/msalah/api/delivery_receivers_photo/${id}.jpeg`
+  );
+
+  const handleError = () => {
+    // Fallback to .jpg if .jpeg fails
+    if (imgSrc.endsWith(".jpeg")) {
+      setImgSrc(
+        `https://msalehgroup.co.in/msalah/api/delivery_receivers_photo/${id}.jpg`
+      );
+    }
+  };
+
   return (
     <div className="h-full">
       <Link href="/deliveries" className="flex items-center gap-2 mb-8">
@@ -19,7 +31,8 @@ const Delivery = () => {
       </Link>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <img
-          src={`https://msalehgroup.co.in/msalah/api/delivery_receivers_photo/${id}.jpg`}
+          src={imgSrc}
+          onError={handleError}
           className="w-full h-[300px] lg:h-[400px] object-center object-contain"
           alt="Photo of receiver"
         />
